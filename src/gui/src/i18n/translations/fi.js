@@ -300,12 +300,9 @@ const fi = {
       "Saat 1 Gt ilmaista tallennustilaa jokaisesta ystävästä, joka luo ja vahvistaa tilin Puterissa. Myös ystäväsi saa 1 Gt:n ilmaista tallennustilaa!",
     refer_friends_social_media_c2a: `Hanki 1 Gt ilmaista tallennustilaa Puter.comista!`,
     refresh: "Päivitä",
-
-    release_address_confirmation: `Haluatko varmasti julkaista tämän osoitteen?`, // TODO: Slight ambiguity between the meaning of "release"
-    // "get rid of" => "Oletko varma, että haluat luovuttaa tämän osoitteen?" or
-    // "publish" => "Oletko varma, että haluat julkaista tämän osoitteen?"
-
+    release_address_confirmation: "Oletko varma, että haluat vapauttaa tämän osoitteen?",
     remove_from_taskbar: "Poista tehtäväpalkista",
+    remove_profile_picture: "Poista profiilikuva",
     rename: "Nimeä uudelleen",
     repeat: "Toista",
     replace: "Replace",

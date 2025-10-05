@@ -240,8 +240,9 @@ const ur = {
     refer_friends_social_media_c2a:
       "پیوٹر ڈاٹ کام پر مفت 1 گیگابائٹ ذخیرہ حاصل کریں!",
     refresh: "تازہ کریں ",
-    release_address_confirmation: "ایڈریس کی تصدیق جاری ",
+    release_address_confirmation: "کیا آپ واقعی اس ایڈریس کو جاری کرنا چاہتے ہیں؟",
     remove_from_taskbar: "ٹاسک بار سے ہٹائیں ",
+    remove_profile_picture: "پروفائل تصویر ہٹائیں",
     rename: "دوبارہ نام دیں",
     repeat: "دہرایؐں",
     replace: "بدل دیں۔",

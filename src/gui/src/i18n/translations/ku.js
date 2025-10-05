@@ -256,9 +256,10 @@ const ku = {
     refer_friends_c2a:
       "1 گیگابایت بۆ هەر هاوڕێک دەست بەرکە، پەیوەندیدانی هەژمارێک بۆ پوتەر دروست بکە و پشتڕاست بکە. هاوڕێتیش 1 گیگابایت وەرگرتن دەبێت!",
     refer_friends_social_media_c2a: `1 گیگابایت پارێزگاکانی پوتەر.com بۆ هەر هاوڕێک بکە!`,
-    refresh: "بوژانەوە",
-    release_address_confirmation: `دڵنیایت کە ئەتەوێت ئەم ناونیشانە بۆ هەڵگرتن؟`,
-    remove_from_taskbar: "لابردن لە تاکسبار",
+    refresh: 'Nûve bike',
+    release_address_confirmation: 'Tu bawerî yî ku dixwazî vê navnîşanê berdê?',
+    remove_from_taskbar: 'Ji rêza karanê rake',
+    remove_profile_picture: 'Wêneya profîlê rake',
     rename: "ناونانەوە",
     repeat: "دووبارەکردنەوە",
     replace: "لە نوێکردنەوە",

@@ -248,9 +248,10 @@ const id = {
     refer_friends_c2a:
       "Dapatkan 1 GB untuk setiap teman yang membuat dan mengonfirmasi akun di Puter. Teman Anda juga akan mendapatkan 1 GB!",
     refer_friends_social_media_c2a: "Dapatkan 1 GB penyimpanan gratis di Puter.com!",
-    refresh: "Memuat Ulang",
+    refresh: "Muat ulang",
     release_address_confirmation: "Apakah Anda yakin ingin melepaskan alamat ini?",
     remove_from_taskbar: "Hapus dari Bilah Tugas",
+    remove_profile_picture: "Hapus foto profil",
     rename: "Ganti Nama",
     repeat: "Ulangi",
     replace: "Ganti",
