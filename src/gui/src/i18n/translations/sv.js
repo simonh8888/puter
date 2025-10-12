@@ -232,9 +232,10 @@ const sv = {
         recover_password: "Återställ lösenord",
         refer_friends_c2a: "Få 1 GB för varje vän som skapar och bekräftar ett konto på Puter. Din vän får också 1 GB.",
         refer_friends_social_media_c2a: "Få 1 GB gratis lagringsutrymme på Puter.com!",
-        refresh: "Uppdatera",
-        release_address_confirmation: "Är du säker på att du vill frigöra denna adress?",
-        remove_from_taskbar: "Ta bort från aktivitetsfältet",
+        refresh: 'Uppdatera',
+        release_address_confirmation: 'Är du säker på att du vill släppa denna adress?',
+        remove_from_taskbar: 'Ta bort från aktivitetsfältet',
+        remove_profile_picture: 'Ta bort profilbild',
         rename: "Byt namn",
         repeat: "Upprepa",
         replace: "Ersätt",
@@ -390,7 +391,7 @@ const sv = {
         "billing.payment_setup": "Betalningsinställningar", // In English: "Payment Setup"
         "billing.back": "Tillbaka", // In English: "Back"
         "billing.you_are_now_subscribed_to": "Du prenumererar nu på %strong% tier.", // In English: "You are now subscribed to %strong% tier."
-        "billing.you_are_now_subscribed_to_without_tier": "Du är nu prenumererad", // In English: "You are now subscribed"
+        "billing.you_are_now_subscribed_to_without_tier": "Du är nu prenumerad", // In English: "You are now subscribed"
         "billing.subscription_cancellation_confirmation": "Är du säker på att du vill avsluta din prenumeration?", // In English: "Are you sure you want to cancel your subscription?"
         "billing.subscription_setup": "Prenumerationsinställningar", // In English: "Subscription Setup"
         "billing.cancel_it": "Avbryt det", // In English: "Cancel It"
@@ -402,7 +403,7 @@ const sv = {
         "billing.download_receipt": "Ladda ner Kvitto", // In English: "Download Receipt"
         "billing.subscription_check_error": "Ett problem uppstod när du kontrollerade din prenumerationsstatus.", // In English: "A problem occurred while checking your subscription status."
         "billing.email_confirmation_needed": "Din e-post har inte bekräftats. Vi skickar dig en kod för att bekräfta den nu.", // In English: "Your email has not been confirmed. We'll send you a code to confirm it now."
-        "billing.sub_cancelled_but_valid_until": "Du har sagt upp din prenumeration och den byter automatiskt till gratisnivån i slutet av faktureringsperioden. Du kommer inte att debiteras igen om du inte prenumererar på nytt.", // In English: "You have cancelled your subscription and it will automatically switch to the free tier at the end of the billing period. You will not be charged again unless you re-subscribe."
+        "billing.sub_cancelled_but_valid_until": "Du har sagt upp din prenumeration och den byter automatiskt till gratisnivån i slutet av faktureringsperioden. Du kommer inte att debiteras igen om du inte prenumerar på nytt.", // In English: "You have cancelled your subscription and it will automatically switch to the free tier at the end of the billing period. You will not be charged again unless you re-subscribe."
         "billing.current_plan_until_end_of_period": "Din nuvarande plan fram till slutet av denna faktureringsperiod.", // In English: "Your current plan until the end of this billing period."
         "billing.current_plan": "Nuvarande plan", // In English: "Current plan"
         "billing.cancelled_subscription_tier": "Avbruten Prenumeration (%%)", // In English: "Cancelled Subscription (%%)"

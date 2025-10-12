@@ -37,6 +37,7 @@ export default {
         h += `<div style="overflow: hidden; display: flex; margin-bottom: 20px; flex-direction: column; align-items: center;">`;
             h += `<div class="profile-picture change-profile-picture" style="background-image: url('${html_encode(window.user?.profile?.picture ?? window.icons['profile.svg'])}');">`;
             h += `</div>`;
+            h += `<button class="button remove-profile-picture" style="margin-top: 10px;">${i18n('remove_profile_picture')}</button>`;
         h += `</div>`;
 
         // change password button
@@ -84,6 +85,14 @@ export default {
         return h;
     },
     init: ($el_window) => {
+        $el_window.find('.remove-profile-picture').on('click', async function (e) {
+            // Remove profile picture
+            $el_window.find('.profile-picture').css('background-image', `url('${html_encode(window.icons['profile.svg'])}')`);
+            $('.profile-image').css('background-image', `url('${html_encode(window.icons['profile.svg'])}')`);
+            $('.profile-image').removeClass('profile-image-has-picture');
+            // update profile picture in backend
+            await update_profile(window.user.username, { picture: null });
+        });
         $el_window.find('.change-password').on('click', function (e) {
             UIWindowChangePassword({
                 window_options:{

@@ -132,9 +132,10 @@ const fa = {
     refer_friends_c2a:
       "برای هر دوستی که حساب کاربری Puter ایجاد و تأیید کند، 1 گیگابایت دریافت کنید. دوست شما هم 1 گیگابایت دریافت خواهد کرد!",
     refer_friends_social_media_c2a: `1 گیگابایت فضای ذخیره سازی رایگان را در Puter.com بگیرید!`,
-    refresh: "تازه کردن",
-    release_address_confirmation: `آیا مطمئن هستید که می خواهید این آدرس را آزاد کنید؟`,
-    remove_from_taskbar: "از نوار وظایف حذف کن",
+    refresh: "تازه‌سازی",
+    release_address_confirmation: "آیا مطمئن هستید که می‌خواهید این آدرس را آزاد کنید؟",
+    remove_from_taskbar: "حذف از نوار وظیفه",
+    remove_profile_picture: "حذف تصویر پروفایل",
     rename: "تغییر نام",
     repeat: "تکرار",
     resend_confirmation_code: "ارسال مجدد کد تأیید",

@@ -247,9 +247,10 @@ const en = {
     refer_friends_c2a:
       "קבל 1 גיגה בייט עבור כל חבר שיוצר ומאשר חשבון ב  Puter. גם החבר שלך יקבל 1 גיגה בייט!",
     refer_friends_social_media_c2a: `קבל שטח אחסון של 1 גיגה בייט בחינם Puter.com!`,
-    refresh: "רענן",
-    release_address_confirmation: `האם אתה בטוח שברצונך לשחרר כתובת זו?`,
-    remove_from_taskbar: "הסרה משורת המשימות",
+    refresh: 'רענן',
+    release_address_confirmation: 'האם אתה בטוח שברצונך לשחרר כתובת זו?',
+    remove_from_taskbar: 'הסר משורת המשימות',
+    remove_profile_picture: 'הסר תמונת פרופיל',
     rename: "שנה שם",
     repeat: "חזור",
     replace: "החלף",

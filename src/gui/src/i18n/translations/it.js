@@ -255,9 +255,10 @@ const it = {
     refer_friends_c2a:
       "Ottieni 1 GB di spazio di archiviazione per ogni amico che crea un account e conferma l’email su Puter. Anche il tuo amico riceverà dello spazio extra!",
     refer_friends_social_media_c2a: `Ottieni 1GB di spazio di spazio di archiviazione gratuito su Puter.com!`,
-    refresh: "Ricarica",
-    release_address_confirmation: `Sei sicuro di voler liberare questo indirizzo?`,
-    remove_from_taskbar: "Sblocca dalla barra delle applicazioni",
+    refresh: "Aggiorna",
+    release_address_confirmation: "Sei sicuro di voler rilasciare questo indirizzo?",
+    remove_from_taskbar: "Rimuovi dalla barra delle applicazioni",
+    remove_profile_picture: "Rimuovi foto profilo",
     rename: "Rinomina",
     repeat: "Ripeti",
     replace: "Sostituisci",

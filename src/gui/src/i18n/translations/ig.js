@@ -252,9 +252,10 @@ const ig = {
     refer_friends_c2a:
       "Nweta 1 GB maka enyi ọ bụla mepụtara ma kwado akaụntụ na Puter. Enyi gị ga-enwetakwa 1 GB!",
     refer_friends_social_media_c2a: `Nweta 1 GB nke nchekwa efu na Puter.com!`,
-    refresh: "Weghachite ume",
-    release_address_confirmation: `O doro gị anya na ịchọrọ wepụtara adreesị a?`,
-    remove_from_taskbar: "Wepu na Taskbar",
+    refresh: "Megharịa",
+    release_address_confirmation: "Ị d sure na ịchọrọ ịhapụ adreesị a?",
+    remove_from_taskbar: "Wepu na taskbar",
+    remove_profile_picture: "Wepu foto profaịlụ",
     rename: "Nyegharịa aha",
     repeat: "megharịa",
     replace: "Dochie",

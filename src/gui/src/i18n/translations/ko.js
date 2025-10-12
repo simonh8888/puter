@@ -250,9 +250,10 @@ const ko = {
     refer_friends_c2a:
       "Puter에서 계정을 생성하고 확인한 친구마다 1GB를 받으십시오. 친구도 1GB를 받게 됩니다!", // Improvement suggestion: "Puter에서 계정을 만들고 확인한 친구마다 1GB를 받아보세요. 친구도 1GB를 받게 됩니다!"
     refer_friends_social_media_c2a: `Puter.com에서 1GB의 무료 저장 공간을 받으십시오!`, // Improvement suggestion: "Puter.com에서 1GB의 무료 저장 공간을 받아보세요!"
-    refresh: "새로 고침",
-    release_address_confirmation: `이 주소를 해제하시겠습니까?`,
+    refresh: "새로고침",
+    release_address_confirmation: "이 주소를 해제하시겠습니까?",
     remove_from_taskbar: "작업 표시줄에서 제거",
+    remove_profile_picture: "프로필 사진 삭제",
     rename: "이름 변경",
     repeat: "반복",
     replace: "교체",

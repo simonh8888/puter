@@ -264,9 +264,10 @@ const es = {
     refer_friends_c2a:
       'Consigue 1 GB por cada amigo que cree y confirme una cuenta en Puter ¡Tu amigo recibirá 1GB también!',
     refer_friends_social_media_c2a: `¡Consigue 1 GB de almacenamiento gratuito en Puter.com!`,
-    refresh: 'Refrescar',
-    release_address_confirmation: `¿Estás seguro de que quieres liberar esta dirección?`,
+    refresh: 'Actualizar',
+    release_address_confirmation: '¿Estás seguro de que deseas liberar esta dirección?',
     remove_from_taskbar: 'Eliminar de la barra de tareas',
+    remove_profile_picture: 'Eliminar foto de perfil',
     rename: 'Renombrar',
     repeat: 'Repetir',
     replace: 'Remplazar',
