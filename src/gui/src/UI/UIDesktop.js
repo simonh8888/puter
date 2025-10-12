@@ -1747,6 +1747,28 @@ window.set_desktop_background = function(options){
     }
 }
 
+// Function to calculate contrast color based on background lightness
+function getContrastColor(bgColor) {
+    // Parse the background color (assuming it's in RGB format)
+    const rgb = bgColor.match(/\d+/g).map(Number);
+    const brightness = (rgb[0] * 299 + rgb[1] * 587 + rgb[2] * 114) / 1000;
+    return brightness > 128 ? 'black' : 'white';
+}
+
+// Apply dynamic contrast adjustment to sidebar header text
+function adjustSidebarHeaderContrast() {
+    const sidebar = document.querySelector('.sidebar');
+    if (sidebar) {
+        const bgColor = window.getComputedStyle(sidebar).backgroundColor;
+        const textColor = getContrastColor(bgColor);
+        sidebar.style.color = textColor;
+    }
+}
+
+// Call the function when the theme lightness changes
+window.addEventListener('load', adjustSidebarHeaderContrast);
+window.addEventListener('themeChange', adjustSidebarHeaderContrast);
+
 window.update_taskbar = function(){
     let items = []
     $('.taskbar-item-sortable[data-keep-in-taskbar="true"]').each(function(index){
