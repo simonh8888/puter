@@ -44,8 +44,8 @@ RUN cd src/gui && npm run build && cd -
 FROM node:21-alpine
 
 # Set labels
-LABEL repo="https://github.com/HeyPuter/puter"
-LABEL license="AGPL-3.0,https://github.com/HeyPuter/puter/blob/master/LICENSE.txt"
+LABEL repo="https://github.com/simonh8888/puter"
+LABEL license="AGPL-3.0,https://github.com/simonh8888/puter/blob/master/LICENSE.txt"
 LABEL version="1.2.46-beta-1"
 
 # Install git (required by Puter to check version)

@@ -1,11 +1,10 @@
 ---
-version: "3.8"
 services:
   puter:
     container_name: puter
-    image: ghcr.io/heyputer/puter:latest
+    #image: ghcr.io/heyputer/puter:latest
     pull_policy: always
-    # build: ./
+    build: ./
     restart: unless-stopped
     ports:
       - '4100:4100'
@@ -17,6 +16,7 @@ services:
     volumes:
       - ./puter/config:/etc/puter
       - ./puter/data:/var/puter
+      - ./src:/app/src # mount
     healthcheck:
       test: wget --no-verbose --tries=1 --spider http://puter.localhost:4100/test || exit 1
       interval: 30s
