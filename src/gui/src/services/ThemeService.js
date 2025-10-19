@@ -122,9 +122,6 @@ export class ThemeService extends Service {
         this.root.style.setProperty('--primary-alpha', s.alpha);
         this.root.style.setProperty('--primary-color', s.light_text ? 'white' : '#373e44');
 
-        // Set text color for active sidebar items
-        this.root.style.setProperty('--window-sidebar-active-text', s.light_text ? '#373e44' : 'white');
-
         // TODO: Should we debounce this to reduce traffic?
         this.#broadcastService.sendBroadcast('themeChanged', {
             palette: {
