@@ -1235,6 +1235,7 @@ span.header-sort-icon img {
 
 .window-sidebar-item:hover, .window-sidebar-item.has-open-contextmenu {
     background-color: rgba(243, 243, 243, 0.8);
+    color: #373e44;
     cursor: pointer;
 }
 
