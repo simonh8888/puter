@@ -41,10 +41,19 @@ function UIAlert(options){
             ]
         }
 
-        // set body icon
-        options.body_icon = options.body_icon ?? window.icons['warning-sign.svg'];
-        if(options.type === 'success')
-            options.body_icon = window.icons['c-check.svg'];
+        // set body icon based on type
+        const alertTypeIcons = {
+            error: { icon: "danger.svg", title: "Error!", color: "#e83434ff" },
+            warning: { icon: "warning-sign.svg", title: "Warning!", color: "#f3ab2dff" },
+            info: { icon: "reminder.svg", title: "Info", color: "#1e78d2ff" },
+            success: { icon: "c-check.svg", title: "Success!", color: "#37953cff" },
+            confirm: { icon: "question.svg", title: "Are you sure?", color: "#525252ff" }
+        };
+        //set defaults
+        const alertTypeIcon = alertTypeIcons[options.type] || alertTypeIcons.info;
+        options.message = options.message || options.title || alertTypeIcon.title;
+        options.body_icon = options.body_icon ?? window.icons[alertTypeIcon.icon];
+        options.color = options.color ?? alertTypeIcon.color;
 
         let santized_message = html_encode(options.message);
 
