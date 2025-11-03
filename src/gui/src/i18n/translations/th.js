@@ -33,6 +33,7 @@ const th = {
         ascending: "เรียงจากน้อยไปมาก",
         associated_websites: "เว็บไซต์ที่เกี่ยวข้อง",
         auto_arrange: 'จัดเรียงอัตโนมัติ',
+        autohide_toolbar: 'ซ่อนแถบเครื่องมือโดยอัตโนมัติ',
         background: "พื้นหลัง",
         browse: "เรียกดู",
         cancel: "ยกเลิก",

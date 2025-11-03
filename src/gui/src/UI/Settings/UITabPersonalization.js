@@ -48,33 +48,16 @@ export default {
                     <option value="show">${i18n('clock_visible_show')}</option>
                 </select>
             </div>
-            <div class="settings-card" style="display: block; height: auto;">
-                <strong style="margin: 15px 0 30px; display: block;">${i18n('menubar_style')}</strong>
-                <div style="flex-grow:1; margin-top: 10px;">
-                    <div>
-                        <label style="display:inline;" for="menubar_style_system">
-                        <input type="radio" name="menubar_style" class="menubar_style" value="system" id="menubar_style_system">
-                        <strong>${i18n('menubar_style_system')}</strong>
-                        <p style="margin-left: 17px; margin-top: 5px; margin-bottom: 20px;">Set the menubar based on the host system settings</p>
-                        </label>
-                    </div>
-                    <div>
-                        <label style="display:inline;" for="menubar_style_desktop">
-                        <input type="radio" name="menubar_style" class="menubar_style" value="desktop" id="menubar_style_desktop">
-                        <strong>${i18n('menubar_style_desktop')}</strong>
-                        <p style="margin-left: 17px; margin-top: 5px; margin-bottom: 20px;">Show app menubar on in the desktop toolbar</p>
-                        </label>
-                    </div>
-
-                    <div>
-                        <label style="display:inline;" for="menubar_style_window">
-                        <input type="radio" name="menubar_style" class="menubar_style" value="window" id="menubar_style_window">
-                        <strong>${i18n('menubar_style_window')}</strong>
-                        <p style="margin-left: 17px; margin-top: 5px; margin-bottom: 20px;">Show app menubar on top of the app window</p>
-                        </label>
-                    </div>
+            <div class="settings-card" style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+                <div style="flex:1; min-width:0;">
+                    <strong style="display:block; margin-bottom:8px;">${i18n('autohide_toolbar')}</strong>
                 </div>
-            </div>`;
+                <label class="toggle-switch" for="toggle_toolbar_autohide" style="margin:0;">
+                    <input type="checkbox" id="toggle_toolbar_autohide">
+                    <span class="toggle-slider" aria-hidden="true"></span>
+                </label>
+            </div>
+            `;
     },
     init: ($el_window) => {
         $el_window.find('.change-ui-colors').on('click', function (e) {
@@ -102,54 +85,73 @@ export default {
 
         window.change_clock_visible();
 
-        puter.kv.get('menubar_style').then(async (val) => {
-            if(val === 'system' || !val){
-                $el_window.find('#menubar_style_system').prop('checked', true);
-            }else if(val === 'desktop'){
-                $el_window.find('#menubar_style_desktop').prop('checked', true);
-            }
-            else if(val === 'window'){
-                $el_window.find('#menubar_style_window').prop('checked', true);
-            }
-        })
+        // Toolbar autohide toggle (new: ON = autohide enabled by default)
+        (async () => {
+            try{
+                const autohideKey = 'user_preferences.toolbar_autohide';
 
-        $el_window.find('.menubar_style').on('change', function (e) {
-            let value = $(this).val();
-            if(value === 'system' || value === 'desktop' || value === 'window'){
-                // save the new style to cloud kv
-                puter.kv.set('menubar_style', value);
-                
-                if(value === 'system'){
-                    if(window.detectHostOS() === 'macos')
-                        value = 'desktop';
-                    else
-                        value = 'window';
-                }
-                // apply the new style
-                if(value === 'desktop'){
-                    $('body').addClass('menubar-style-desktop');
-                    $('.window-menubar').each((_, el) => {
-                        $(el).insertAfter('.toolbar-puter-logo');
-                        // add window-menubar-global
-                        $(el).addClass('window-menubar-global');
-                        // hide
-                        $(el).hide();
-                    })
+                // Read explicit autohide preference only. Default: ON
+                const rawAutohide = await puter.kv.get(autohideKey);
+
+                let autohideEnabled;
+                if(rawAutohide !== undefined && rawAutohide !== null && rawAutohide !== ''){
+                    if(rawAutohide === '1' || rawAutohide === 1 || rawAutohide === true || String(rawAutohide).toLowerCase() === 'true'){
+                        autohideEnabled = true;
+                    }else if(rawAutohide === '0' || rawAutohide === 0 || String(rawAutohide).toLowerCase() === 'false'){
+                        autohideEnabled = false;
+                    }else{
+                        autohideEnabled = !!rawAutohide;
+                    }
                 }else{
-                    $('body').removeClass('menubar-style-desktop');
-                    $('.window-menubar-global').each((_, el) => {
-                        let win_id = $(el).attr('data-window-id');
-                        $(el).insertAfter('.window[data-id="'+win_id+'"] .window-head');
-                        // remove window-menubar-global
-                        $(el).removeClass('window-menubar-global');
-                        // show
-                        $(el).css('display', 'flex');
-                    })
+                    autohideEnabled = true;
                 }
-                window.menubar_style = value;
-            }else{
-                console.error('Invalid menubar style value');
+
+                $el_window.find('#toggle_toolbar_autohide').prop('checked', autohideEnabled);
+
+                // apply to toolbar immediately
+                if(!autohideEnabled){
+                    // autohide disabled -> ensure toolbar is visible and persistent
+                    $('.toolbar').removeClass('toolbar-hidden').addClass('toolbar-persistent-visible');
+                }else{
+                    // autohide enabled -> clear persistent-visible so autohide logic applies
+                    $('.toolbar').removeClass('toolbar-persistent-visible');
+                }
+
+                $el_window.on('change', '#toggle_toolbar_autohide', async function(){
+                    const val = $(this).is(':checked');
+                    try{
+                        // persist the explicit autohide preference
+                        // store '1' for enabled, '0' for explicitly disabled
+                        await puter.kv.set(autohideKey, val ? '1' : '0');
+                    }catch(e){
+                        console.error('Failed saving toolbar autohide preference', e);
+                    }
+
+                    if(val){
+                        // autohide enabled — remove persistent-visible and schedule hide
+                        $('.toolbar').removeClass('toolbar-hidden toolbar-persistent-visible');
+                        // If the autohide module exposes scheduleHide, call it; otherwise fallback to timeout
+                        try{
+                            if(window._toolbarAutohide && typeof window._toolbarAutohide.scheduleHide === 'function'){
+                                window._toolbarAutohide.scheduleHide();
+                            }else{
+                                // fallback: schedule a hide after 2s unless user is hovering
+                                setTimeout(() => {
+                                    if(!$('.toolbar').is(':hover'))
+                                        $('.toolbar').addClass('toolbar-hidden');
+                                }, 2000);
+                            }
+                        }catch(e){
+                            // noop
+                        }
+                    }else{
+                        // autohide disabled -> show toolbar persistently
+                        $('.toolbar').removeClass('toolbar-hidden').addClass('toolbar-persistent-visible');
+                    }
+                });
+            }catch(e){
+                console.error('Error initializing toolbar autohide toggle', e);
             }
-        })
+        })();
     },
 };

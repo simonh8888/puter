@@ -719,8 +719,10 @@ function UIContextMenu(options){
         return false;
     })
 
-    // Disable parent scroll
+    // Disable parent scroll (store previous overflow to restore later)
+    let _parent_prev_overflow = null;
     if(options.parent_element){
+        _parent_prev_overflow = $(options.parent_element).css('overflow');
         $(options.parent_element).css('overflow', 'hidden');
         $(options.parent_element).parent().addClass('children-have-open-contextmenu');
         $(options.parent_element).addClass('has-open-contextmenu');
@@ -729,13 +731,17 @@ function UIContextMenu(options){
     $(contextMenu).on("remove", function () {
         if(submenu_delay_timer) clearTimeout(submenu_delay_timer);
         if ( options.onClose ) options.onClose(cancel_options_);
-        // when removing, make parent scrollable again
+        // when removing, restore parent overflow and classes
         if(options.parent_element){
             $(options.parent_element).parent().removeClass('children-have-open-contextmenu');
 
-            // make parent scrollable again
-            $(options.parent_element).css('overflow', 'scroll');
-            
+            // restore previous overflow value (or clear it)
+            if(_parent_prev_overflow !== null && _parent_prev_overflow !== undefined){
+                $(options.parent_element).css('overflow', _parent_prev_overflow);
+            } else {
+                $(options.parent_element).css('overflow', '');
+            }
+
             $(options.parent_element).removeClass('has-open-contextmenu');
             if($(options.parent_element).hasClass('taskbar-item')){
                 window.make_taskbar_sortable()

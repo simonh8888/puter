@@ -33,6 +33,7 @@ const pt = {
         ascending: 'Ascendente',
         associated_websites: "Sites Associados",
         auto_arrange: 'Auto Organizar',
+        autohide_toolbar: 'Ocultar automaticamente a barra de ferramentas',
         background: "Fundo",
         browse: "Explorar",
         cancel: 'Cancelar',

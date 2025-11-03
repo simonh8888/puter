@@ -34,6 +34,7 @@ const br = {
     ascending: 'Ascendente',
     associated_websites: "Sites Associados",
     auto_arrange: 'Organizar Automaticamente',
+    autohide_toolbar: "Ocultar automaticamente a barra de ferramentas",
     background: "Plano de Fundo",
     browse: "Navegar",
     cancel: 'Cancelar',

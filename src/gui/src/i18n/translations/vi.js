@@ -34,6 +34,7 @@ const vi = {
         ascending: 'Tăng dần',
         associated_websites: "Các trang web liên kết",
         auto_arrange: 'Tự động sắp xếp',
+        autohide_toolbar: 'Tự động ẩn thanh công cụ',
         background: "Nền",
         browse: "Duyệt",
         cancel: 'Hủy',

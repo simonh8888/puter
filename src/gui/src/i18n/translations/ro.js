@@ -33,6 +33,7 @@ const ro = {
         ascending: 'Ascendent',
         associated_websites: "Site-uri partenere",
         auto_arrange: "Aranjare automată",
+        autohide_toolbar: "Ascunde automat bara de instrumente",
         background: "Background",
         browse: "Caută",
         cancel: 'Anulează',

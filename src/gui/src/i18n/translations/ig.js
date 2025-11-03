@@ -33,6 +33,7 @@ const ig = {
     ascending: "Na-arịgo",
     associated_websites: "Weebụsaịtị Ejikọtara",
     auto_arrange: "ndokwa onwe",
+    autohide_toolbar: 'Zoo ogwe ngwá ọrụ akpaka',
     background: "ndabere",
     browse: "Chọgharịa",
     cancel: "Kagbuo",

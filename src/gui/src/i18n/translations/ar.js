@@ -31,6 +31,7 @@ const ar = {
       ascending: "تصاعدي",
       associated_websites: "المواقع المرتبطة",
       auto_arrange: "ترتيب تلقائي",
+      autohide_toolbar: "إخفاء شريط الأدوات",
       background: "خلفية",
       browse: "تصفح",
       cancel: "إلغاء",

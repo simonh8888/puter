@@ -33,6 +33,7 @@ const it = {
     ascending: "Ascendente",
     associated_websites: "Siti associati",
     auto_arrange: "Organizzazione automatica",
+    autohide_toolbar: 'Nascondi automaticamente la barra degli strumenti', //miss
     background: "Sfondo",
     browse: "Sfoglia",
     cancel: "Annulla",

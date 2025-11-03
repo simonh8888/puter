@@ -37,6 +37,7 @@ const ku = {
     ascending: "سەرووەی",
     associated_websites: "وێبسایتەکان پەیوەندیدار",
     auto_arrange: "ڕیزکردنی ئۆتۆماتیکی",
+    autohide_toolbar: "تۆڵباریەکە بەشێوەی خۆکار پەنهان بکە",
     background: "پاشبنەما",
     browse: "گەڕان",
     cancel: "ڕەتکردنەوە",

@@ -34,6 +34,7 @@ const tr = {
         ascending: "Artan",
         associated_websites: "İlişkilendirilmiş Web Siteleri",
         auto_arrange: "Otomatik Düzenle",
+        autohide_toolbar: "Araç çubuğunu otomatik olarak gizle",
         background: "Arka Plan",
         browse: "Gözat",
         cancel: "İptal",

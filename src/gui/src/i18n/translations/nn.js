@@ -172,6 +172,7 @@ const nn = {
         "allow": undefined, // In English: "Allow"
         "associated_websites": undefined, // In English: "Associated Websites"
         "auto_arrange": undefined, // In English: "Auto Arrange"
+        "autohide_toolbar": "Skjul verktøylina automatisk",
         "change": undefined, // In English: "Change"
         "change_always_open_with": undefined, // In English: "Do you want to always open this type of file with"
         "change_email": undefined, // In English: "Change Email"

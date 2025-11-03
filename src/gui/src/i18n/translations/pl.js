@@ -33,6 +33,7 @@ const pl = {
         ascending: 'Rosnąco',
         associated_websites: "Powiązane strony",
         auto_arrange: 'Auto Aranżacja',
+        autohide_toolbar: 'Automatycznie ukryj pasek narzędzi', 
         background: "Tło",
         browse: "Przeglądaj",
         cancel: 'Anuluj',
