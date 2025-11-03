@@ -33,6 +33,7 @@ const da = {
 		ascending: 'Stigende',
 		associated_websites: 'Tilknyttede websteder',
 		auto_arrange: 'Auto Arrangere',
+		autohide_toolbar: "Skjul værktøjslinjen automatisk",
 		background: 'Baggrund',
 		browse: 'Gennemse',
 		cancel: 'Annuller',

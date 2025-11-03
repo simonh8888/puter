@@ -34,6 +34,7 @@ const ja = {
         ascending: '昇順',
         associated_websites: "関連ウェブサイト",
         auto_arrange: '自動配置',
+        autohide_toolbar: 'ツールバーを自動的に非表示にする',
         background: "背景",
         browse: "ブラウズ",
         cancel: 'キャンセル',

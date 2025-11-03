@@ -33,6 +33,7 @@ const ua = {
         ascending: "За зростанням",
         associated_websites: "Асоційовані веб-сайти",
         auto_arrange: 'Автоупорядкування',
+        autohide_toolbar: 'Автоматично приховувати панель інструментів',
         background: "Фон",
         browse: "Переглянути",
         cancel: "Відміна",

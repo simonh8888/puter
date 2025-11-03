@@ -40,6 +40,7 @@ const es = {
     ascending: 'Ascendiente',
     associated_websites: 'Sitios Web Asociados',
     auto_arrange: 'Organización Automática',
+    autohide_toolbar: 'Ocultar automáticamente la barra de herramientas',
     background: 'Fondo',
     browse: 'Buscar',
     cancel: 'Cancelar',

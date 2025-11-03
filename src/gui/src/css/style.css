@@ -1736,19 +1736,22 @@ label {
 }
 
 .toolbar {
-    float: right;
+    /* toolbar remains full-width but centers the island */
     width: 100%;
-    background-color: #00000040;
+    background-color: transparent;
     height: 30px;
     position: relative;
-    z-index: 999999;
+    /* keep toolbar visually above the desktop but below application windows */
+    z-index: 9;
+    /* don't block pointer events for underlying windows; enable pointer-events only on the island */
+    pointer-events: none;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
-    align-content: center;
-    flex-wrap: wrap;
-    padding-right: 10px
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: 6px 0;
 }
 
 .show-desktop-btn {
@@ -1771,36 +1774,80 @@ label {
 
 @supports ((backdrop-filter: blur())) {
     .toolbar {
-        background-color: #00000040;
-        backdrop-filter: blur(10px);
+        /* keep toolbar background transparent for island design */
+        background-color: transparent !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        box-shadow: none !important;
     }
 }
 
 .toolbar-btn {
-    padding: 4px;
     font-size: 14px;
-    width: auto;
-    padding: 0 5px;
-    margin-left: 20px;
-    overflow-y: hidden !important;
-    overflow-x: hidden !important;
+    box-sizing: border-box;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    display: inline-block;
-    width: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-width: 22px;
     height: 22px;
-    padding: 3px;
-    box-sizing: border-box;
-    background-origin: content-box;
+    padding: 3px 6px;
+    margin: 0 6px;
+    overflow: visible;
+    flex: 0 0 auto;
+    position: relative;
+    z-index: 1;
+    opacity: 0.95;
+}
+
+.toolbar-island {
+    /* allow buttons to wrap onto multiple rows when there are many items */
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    opacity: 0.8;
+    gap: 8px;
+    row-gap: 6px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    box-sizing: border-box;
+    background-color: rgba(0,0,0,0.28);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.35);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: transform 220ms cubic-bezier(.2,.9,.2,1), opacity 180ms ease-in-out;
+    max-width: calc(100% - 40px);
+}
+
+/* Autohide state: when the toolbar has the 'toolbar-hidden' class, visually hide
+   the island via transform/opacity while keeping the toolbar element in the flow
+   so layout (reserved height) is preserved. */
+.toolbar.toolbar-hidden .toolbar-island {
+    transform: translateY(-110%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* When visible, ensure the island sits flush */
+.toolbar .toolbar-island {
+    transform: translateY(0);
+    opacity: 1;
+    /* island itself must receive pointer events so buttons work */
+    pointer-events: auto;
 }
 
 .toolbar-btn:hover {
     opacity: 1;
+}
+
+/* ensure images/icons inside toolbar buttons fit and don't overflow */
+.toolbar-btn img, .toolbar-btn svg, .toolbar-btn .profile-image {
+    max-width: 18px;
+    max-height: 18px;
+    display: block;
 }
 
 .user-options-menu-btn.has-open-contextmenu {
@@ -1826,9 +1873,20 @@ label {
     padding: 0 15px;
 }
 
+/* When inside the centered island, keep these buttons compact */
+.toolbar-island .user-options-login-btn,
+.toolbar-island .user-options-create-account-btn {
+    padding: 0 6px !important;
+    min-width: 22px;
+    width: auto !important;
+}
+
 .toolbar-btn:hover:not(.has-open-contextmenu) {
     background-color: rgb(255 255 255 / 15%);
-    border-radius: 3px;
+    border-radius: 6px;
+    /* subtle spread so the hover "highlight" is a few px larger on all sides
+       without changing layout (box-shadow doesn't affect element flow) */
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.06);
 }
 
 .logout-btn {
@@ -1844,6 +1902,52 @@ label {
 .logout-btn img {
     width: 20px;
     margin-bottom: -5px;
+}
+
+/* Simple on/off switch used in Settings personalization */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+}
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #cfcfcf;
+    transition: background 180ms ease-in-out;
+    border-radius: 999px;
+}
+.toggle-slider:before {
+    content: "";
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    left: 3px;
+    top: 3px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    transition: transform 180ms ease-in-out;
+}
+.toggle-switch input:checked + .toggle-slider {
+    background: #4caf50;
+}
+.toggle-switch input:checked + .toggle-slider:before {
+    transform: translateX(22px);
+}
+.toggle-switch:focus-within .toggle-slider {
+    box-shadow: 0 0 0 4px rgba(76,175,80,0.12);
 }
 
 .login-error-msg, .signup-error-msg, .publish-website-error-msg, .form-error-msg {

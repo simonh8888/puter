@@ -34,6 +34,7 @@ const sv = {
         ascending: "Stigande",
         associated_websites: "Anknytande webbplatser",
         auto_arrange: "Auto Arrange",
+        autohide_toolbar: "Dölj verktygsfältet automatiskt",
         background: "Bakgrund",
         browse: "Bläddra",
         cancel: "Avbryt",

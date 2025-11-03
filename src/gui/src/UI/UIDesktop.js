@@ -670,35 +670,6 @@ async function UIDesktop(options){
     puter.kv.get("sidebar_items").then(async (val) => {
         window.sidebar_items = val;
     })
-    // also update every 2 seconds
-    // setInterval(async () => {
-    //     puter.kv.get("sidebar_items").then(async (val) => {
-    //         window.sidebar_items = val;
-    //     })
-    // }, 2000);
-
-    // Get menubar style
-    puter.kv.get('menubar_style').then(async (val) => {
-        let value = val;
-        if(value === 'system' || value === 'desktop' || value === 'window'){
-            window.menubar_style = value;
-        }else{
-            window.menubar_style = 'system';
-        }
-
-        if(window.menubar_style === 'system'){
-            if(window.detectHostOS() === 'macos')
-                window.menubar_style = 'desktop';
-            else
-                window.menubar_style = 'window';
-        }
-
-        // set menubar style class to body
-        if(window.menubar_style === 'desktop'){
-            $('body').addClass('menubar-style-desktop');
-        }
-    })
-
 
     // Remove `?ref=...` from navbar URL
     if(window.url_query_params.has('ref')){
@@ -1103,14 +1074,18 @@ async function UIDesktop(options){
     // User options
     // ----------------------------------------------------
     let ht = '';
-    ht += `<div class="toolbar" style="height:${window.toolbar_height}px; min-height:${window.toolbar_height}px; max-height:${window.toolbar_height}px;">`;
-        // logo
-        ht += `<div class="toolbar-btn toolbar-puter-logo" title="Puter" style="margin-left: 10px; margin-right: auto;"><img src="${window.icons['logo-white.svg']}" draggable="false" style="display:block; width:17px; height:17px"></div>`;
+    // make toolbar allow auto height while keeping a minimum reserved height
+    ht += `<div class="toolbar" style="min-height:${window.toolbar_height}px; height:auto;">`;
+        // dynamic island container (centered)
+        ht += `<div class="toolbar-island">`;
+        // logo (inside island)
+        ht += `<div class="toolbar-btn toolbar-puter-logo" title="Puter"><img src="${window.icons['logo-white.svg']}" draggable="false" style="display:block; width:17px; height:17px"></div>`;
 
         // create account button
         ht += `<div class="toolbar-btn user-options-create-account-btn ${window.user.is_temp ? '' : 'hidden' }" style="padding:0; opacity:1;" title="Save Account">`;
             ht += `<svg style="width: 17px; height: 17px;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="48px" height="48px" viewBox="0 0 48 48"><g transform="translate(0, 0)"><path d="M45.521,39.04L27.527,5.134c-1.021-1.948-3.427-2.699-5.375-1.679-.717,.376-1.303,.961-1.679,1.679L2.479,39.04c-.676,1.264-.635,2.791,.108,4.017,.716,1.207,2.017,1.946,3.42,1.943H41.993c1.403,.003,2.704-.736,3.42-1.943,.743-1.226,.784-2.753,.108-4.017ZM23.032,15h1.937c.565,0,1.017,.467,1,1.031l-.438,14c-.017,.54-.459,.969-1,.969h-1.062c-.54,0-.983-.429-1-.969l-.438-14c-.018-.564,.435-1.031,1-1.031Zm.968,25c-1.657,0-3-1.343-3-3s1.343-3,3-3,3,1.343,3,3-1.343,3-3,3Z" fill="#ffbb00"></path></g></svg>`;
         ht += `</div>`;
+        
 
         // 'Show Desktop'
         ht += `<a href="/" class="show-desktop-btn toolbar-btn antialiased hidden" target="_blank" title="Show Desktop">Show Desktop <img src="${window.icons['launch-white.svg']}" style="width: 10px; height: 10px; margin-left: 5px;"></a>`;
@@ -1140,7 +1115,8 @@ async function UIDesktop(options){
         ht += `<div class="toolbar-btn user-options-menu-btn profile-pic" style="display:block;">`;
             ht += `<div class="profile-image ${window.user?.profile?.picture && 'profile-image-has-picture'}" style="border-radius: 50%; background-image:url(${window.user?.profile?.picture || window.icons['profile.svg']}); box-sizing: border-box; width: 17px !important; height: 17px !important; background-size: contain; background-repeat: no-repeat; background-position: center; background-position: center; background-size: cover;"></div>`;
         ht += `</div>`;
-    ht += `</div>`;
+    ht += `</div>`; // close toolbar-island
+    ht += `</div>`; // close toolbar
 
     // prepend toolbar to desktop
     $(ht).insertBefore(el_desktop);
@@ -1150,6 +1126,106 @@ async function UIDesktop(options){
 
     // adjust window container to take into account the toolbar height
     $('.window-container').css('top', window.toolbar_height);
+
+    // -----------------------------------------------
+    // Autohide toolbar island (visual-only)
+    // - Enabled by default
+    // - Shows when mouse is within PROXIMITY_PX from top or when hovering the toolbar
+    // - Hides after IDLE_DELAY_MS when out of proximity/hover
+    // -----------------------------------------------
+    (async function setupToolbarAutohide(){
+        const AUT0HIDE_ENABLED = true; // default on
+        const IDLE_DELAY_MS = 2000; // 2 seconds
+        const PROXIMITY_PX = 48; // show when cursor is within this many px from top
+
+        if(!AUT0HIDE_ENABLED) return;
+
+        const $toolbar = $('.toolbar');
+        if(!$toolbar || $toolbar.length === 0) return;
+
+        // Read only the explicit autohide preference. Default: enabled
+        let autohideExplicit = null; // null means not explicitly set
+        try{
+            const valAutohide = await puter.kv.get('user_preferences.toolbar_autohide');
+            if (valAutohide !== undefined && valAutohide !== null && valAutohide !== '') {
+                if (valAutohide === '1' || valAutohide === 1 || valAutohide === true || String(valAutohide).toLowerCase() === 'true') {
+                    autohideExplicit = true;
+                } else if (valAutohide === '0' || valAutohide === 0 || String(valAutohide).toLowerCase() === 'false') {
+                    autohideExplicit = false;
+                } else {
+                    autohideExplicit = true;
+                }
+            }
+        }catch(e){
+            autohideExplicit = null;
+        }
+
+        // If autohide was explicitly disabled in KV, respect it and do not install autohide handlers
+        if(autohideExplicit === false){
+            $toolbar.removeClass('toolbar-hidden').addClass('toolbar-persistent-visible');
+            return;
+        }
+
+        let hideTimer = null;
+        let isHover = false;
+
+        const show = () => {
+            $toolbar.removeClass('toolbar-hidden');
+            if(hideTimer){ clearTimeout(hideTimer); hideTimer = null; }
+        };
+
+        const scheduleHide = (delay = IDLE_DELAY_MS) => {
+            if(hideTimer) clearTimeout(hideTimer);
+            hideTimer = setTimeout(() => {
+                // Don't hide if hovering or if persistent-visible is set
+                if(!isHover && !$('.toolbar').hasClass('toolbar-persistent-visible')){
+                    $toolbar.addClass('toolbar-hidden');
+                }
+            }, delay);
+        };
+
+        // Expose small API so other modules (settings toggle) can trigger the same hide logic
+        try{
+            window._toolbarAutohide = window._toolbarAutohide || {};
+            window._toolbarAutohide.scheduleHide = scheduleHide;
+            window._toolbarAutohide.show = show;
+        }catch(e){
+            // ignore if environment prevents attaching to window
+        }
+
+        // Initially hide after a short moment so page load doesn't flash the bar
+        scheduleHide(350);
+
+        // mouse proximity detection
+        const onMove = (e) => {
+            const y = e.clientY;
+            if (typeof y === 'number' && y <= PROXIMITY_PX) {
+                // In proximity: reveal and cancel any pending hide
+                show();
+            } else {
+                // Not in proximity: schedule hide but don't keep resetting the timer
+                if (!hideTimer) scheduleHide(IDLE_DELAY_MS);
+            }
+        };
+
+        document.addEventListener('mousemove', onMove);
+
+        // toolbar hover keeps it visible
+        $toolbar.on('mouseenter', () => { isHover = true; show(); });
+        $toolbar.on('mouseleave', () => { isHover = false; scheduleHide(IDLE_DELAY_MS); });
+
+        // keyboard/focus activity should reveal toolbar briefly
+        const onKeyboard = () => { show(); scheduleHide(IDLE_DELAY_MS); };
+        document.addEventListener('keydown', onKeyboard);
+
+        // cleanup on unload (defensive)
+        window.addEventListener('beforeunload', () => {
+            document.removeEventListener('mousemove', onMove);
+            document.removeEventListener('keydown', onKeyboard);
+            $toolbar.off('mouseenter mouseleave');
+            try{ window._toolbarAutohide = undefined; }catch(e){}
+        });
+    })();
 
     // track: checkpoint
     //-----------------------------

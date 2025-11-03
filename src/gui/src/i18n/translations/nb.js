@@ -191,6 +191,7 @@ const nb = {
         "allow": undefined, // In English: "Allow"
         "associated_websites": undefined, // In English: "Associated Websites"
         "auto_arrange": undefined, // In English: "Auto Arrange"
+        "autohide_toolbar": "Skjul verktøylinjen automatisk",
         "change": undefined, // In English: "Change"
         "change_email": undefined, // In English: "Change Email"
         "change_ui_colors": undefined, // In English: "Change UI Colors"

@@ -33,6 +33,7 @@ const ru = {
     ascending: 'По возрастанию',
     associated_websites: 'Связанные сайты',
     auto_arrange: 'Автоупорядочивание',
+    autohide_toolbar: 'Автоматически скрывать панель инструментов',
     background: 'Фон',
     browse: 'Пролистать',
     cancel: 'Отмена',

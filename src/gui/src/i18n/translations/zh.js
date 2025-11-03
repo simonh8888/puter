@@ -34,6 +34,7 @@ const zh = {
         ascending: '升序',
         associated_websites: "相关网站",
         auto_arrange: '自动排序',
+        autohide_toolbar: '自动隐藏工具栏',
         background: "背景",
         browse: "浏览",
         cancel: '取消',

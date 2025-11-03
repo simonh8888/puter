@@ -31,6 +31,7 @@ const ur = {
     apply: "لگائیں ",
     ascending: "بڑھتی ہوئی",
     auto_arrange: "خودکار ترتیب",
+    autohide_toolbar: 'ٹول بار کو خود بخود چھپائیں',
     background: "پس منظر",
     browse: "تلاش کریں",
     cancel: "منسوخ کریں",

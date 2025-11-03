@@ -34,6 +34,7 @@ const fr = {
         ascending: 'Ascendant',
         associated_websites: "Sites associés",
         auto_arrange: 'Organisation automatique',
+        autohide_toolbar: 'Masquer automatiquement la barre d\'outils',
         background: "Arrière-plan",
         browse: "Parcourir",
         cancel: 'Annuler',

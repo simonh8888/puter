@@ -30,6 +30,7 @@ const fa = {
     apply: "اعمال",
     ascending: "صعودی",
     auto_arrange: "ترتیب خودکار",
+    autohide_toolbar: 'مخفی‌سازی خودکار نوار ابزار', 
     background: "پس زمینه",
     browse: "مرور",
     cancel: "لغو",

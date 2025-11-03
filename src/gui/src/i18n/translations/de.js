@@ -34,6 +34,7 @@ const de = {
         ascending: 'Aufsteigend',
         associated_websites: "Zugeordnete Webseiten",
         auto_arrange: 'Automatisch anordnen',
+        autohide_toolbar: "Symbolleiste automatisch ausblenden",
         background: "Hintergrund",
         browse: "Durchsuchen",
         cancel: 'Abbrechen',

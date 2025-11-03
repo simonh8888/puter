@@ -34,6 +34,7 @@ const hi = {
         ascending: 'आरोही',
         associated_websites: "संबंधित वेबसाइटें",
         auto_arrange: 'स्वचालित व्यवस्तित',
+        autohide_toolbar: 'टूलबार को स्वचालित रूप से छुपाएं',
         background: "पृष्ठभूमि",
         browse: "देखें",
         cancel: 'रद्द',

@@ -39,6 +39,7 @@ const fi = {
     ascending: "Nouseva",
     associated_websites: "Tähän liittyvät verkkosivustot",
     auto_arrange: "Järjestä automaattisesti",
+    autohide_toolbar: 'Piilota työkalurivi automaattisesti',
     background: "Tausta",
     browse: "Selaa",
     cancel: "Peruuta",

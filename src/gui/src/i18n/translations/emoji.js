@@ -28,6 +28,7 @@ const emoji = {
         apply: "📋🔄",
         ascending: '🔼',
         auto_arrange: '🔄📂📄',
+        autohide_toolbar: '❌👁️⚙️',
         background: "🖼️",
         browse: "🔍",
         cancel: '❌',

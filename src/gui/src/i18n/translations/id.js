@@ -33,6 +33,7 @@ const id = {
     ascending: "Menaik",
     associated_websites: "Situs Web Terkait",
     auto_arrange: "Atur Otomatis",
+    autohide_toolbar: 'Sembunyikan bilah alat secara otomatis',
     background: "Latar Belakang",
     browse: "Jelajahi",
     cancel: "Batal",

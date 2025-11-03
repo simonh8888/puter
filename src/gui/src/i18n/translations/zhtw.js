@@ -33,6 +33,7 @@ const zhtw = {
         ascending: '升序',
         associated_websites: "關聯的網站",
         auto_arrange: '自動排列',
+        autohide_toolbar: '自動隱藏工具列',
         background: "背景",
         browse: "瀏覽",
         cancel: '取消',

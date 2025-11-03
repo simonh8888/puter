@@ -33,6 +33,7 @@ const hy = {
         ascending: "Աճող",
         associated_websites: "Կապված կայքեր",
         auto_arrange: "Ավտոմատ դասավորել",
+        autohide_toolbar: 'Գործիքագոտինը ավտոմատ կերպով թաքցնել', 
         background: "Ֆոն",
         browse: "Թերթել",
         cancel: "Չեղարկել",

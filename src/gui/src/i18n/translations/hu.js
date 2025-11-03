@@ -29,6 +29,7 @@ const hu = {
         ascending: "Növekvő",
         associated_websites: "Kapcsolódó weboldalak",
         auto_arrange: "Automatikus elrendezés",
+        autohide_toolbar: 'Eszköztár automatikus elrejtése',
         background: "Háttér",
         browse: "Böngészés",
         cancel: "Mégsem",

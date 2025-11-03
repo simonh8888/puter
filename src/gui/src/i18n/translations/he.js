@@ -33,6 +33,7 @@ const en = {
     ascending: "בסדר עולה",
     associated_websites: "אתרים קשורים",
     auto_arrange: "סידור אוטומטי",
+    autohide_toolbar: 'הסתר את סרגל הכלים באופן אוטומטי',
     background: "רקע",
     browse: "דפדף",
     cancel: "ביטול",

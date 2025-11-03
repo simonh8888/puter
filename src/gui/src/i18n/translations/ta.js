@@ -33,6 +33,7 @@ const ta = {
         ascending: 'ஏறுமுகம்',
         associated_websites: "தொடர்புடைய இணையதளங்கள்",
         auto_arrange: 'ஆட்டோ ஏற்பாடு',
+        autohide_toolbar: 'தானாக கருவி பட்டையை மறைக்கவும்',
         background: "பின்னணி",
         browse: "உலாவவும்",
         cancel: 'ரத்து செய்',

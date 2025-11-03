@@ -33,6 +33,7 @@ const nl = {
 		ascending: 'Oplopend',
 		associated_websites: 'Geassocieerde Websites',
 		auto_arrange: 'Automatisch sorteren',
+		autohide_toolbar: 'Werkbalk automatisch verbergen', 
 		background: 'Achtergrond',
 		browse: 'Bladeren',
 		cancel: 'Annuleren',

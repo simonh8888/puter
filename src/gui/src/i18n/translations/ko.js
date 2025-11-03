@@ -37,6 +37,7 @@ const ko = {
     ascending: "오름차순",
     associated_websites: "관련 웹사이트",
     auto_arrange: "자동 정렬",
+    autohide_toolbar: '툴바 자동 숨기기',
     background: "배경",
     browse: "찾아보기",
     cancel: "취소",
