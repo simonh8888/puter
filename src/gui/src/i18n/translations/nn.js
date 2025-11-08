@@ -140,6 +140,7 @@ const nn = {
         set_new_password: "Set nytt passord",
         share_to: "Del",
         show_all_windows: "Vis alle vindauge",
+        show_desktop_icons: "Vis skrivebordsikon",
         show_hidden: "Vis skjulte",
         sign_in_with_puter: "Logg inn med Puter",
         sign_up: "Registrer deg",

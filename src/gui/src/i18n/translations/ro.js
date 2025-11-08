@@ -270,6 +270,7 @@ const ro = {
         share_with: "Distribuie cu",
         shortcut_to: "Comandă rapidă ©ătre",
         show_all_windows: "Afișați toate ferestrele",
+        show_desktop_icons: "Afișează pictogramele desktopului",
         show_hidden: 'Arată ascuns',
         sign_in_with_puter: "Conectați-vă cu Puter",
         sign_up: "Inscrie-te",

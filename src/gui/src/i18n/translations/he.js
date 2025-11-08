@@ -286,6 +286,7 @@ const en = {
     share_with: "שתף עם:",
     shortcut_to: "קיצור דרך אל",
     show_all_windows: "הצג את כל החלונות",
+    show_desktop_icons: "הצג את סמלי שולחן העבודה",
     show_hidden: "הצג מוסתר",
     sign_in_with_puter: "להתחבר עם Puter",
     sign_up: "הרשמה",

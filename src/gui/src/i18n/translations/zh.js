@@ -270,6 +270,7 @@ const zh = {
         share_with: "分享:",
         shortcut_to: "快捷方式",
         show_all_windows: "显示所有窗口",
+        show_desktop_icons: '显示桌面图标',
         show_hidden: '显示隐藏',
         sign_in_with_puter: "使用 Puter 登录",
         sign_up: "注册",

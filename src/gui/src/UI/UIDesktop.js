@@ -734,6 +734,24 @@ async function UIDesktop(options){
 
     const el_desktop = document.querySelector('.desktop');
 
+    // Helper: apply the user preference by toggling a class on the desktop
+    function applyDesktopIconsVisibility(){
+        try{
+            const visible = window.user_preferences?.show_desktop_icons ?? true;
+            if(!el_desktop) return;
+            if(visible)
+                el_desktop.classList.remove('desktop-icons-hidden');
+            else
+                el_desktop.classList.add('desktop-icons-hidden');
+        }catch(e){
+            // fail silently and keep icons visible
+            console.error('applyDesktopIconsVisibility', e);
+        }
+    }
+
+    // Apply initial visibility
+    applyDesktopIconsVisibility();
+
     window.active_element = el_desktop;
     window.active_item_container = el_desktop;
     // --------------------------------------------------------
@@ -943,6 +961,19 @@ async function UIDesktop(options){
                             window.show_or_hide_files(document.querySelectorAll('.item-container'));
                         }
                     },
+                                // -------------------------------------------
+                                // Show/Hide Desktop Icons
+                                // -------------------------------------------
+                                {
+                                    html: i18n('show_desktop_icons'),
+                                    icon: window.user_preferences?.show_desktop_icons ? '✓' : '',
+                                    onClick: function(){
+                                        const newVal = !window.user_preferences?.show_desktop_icons;
+                                        window.mutate_user_preferences({ show_desktop_icons: newVal });
+                                        // apply immediately
+                                        applyDesktopIconsVisibility();
+                                    }
+                                },
                     // -------------------------------------------
                     // -
                     // -------------------------------------------
@@ -1013,6 +1044,8 @@ async function UIDesktop(options){
     //-------------------------------------------
     if(!window.is_embedded && !window.is_fullpage_mode){
         refresh_item_container(el_desktop, {fadeInItems: true})
+        // ensure visibility preference is applied after refresh
+        try{ applyDesktopIconsVisibility(); }catch(e){ setTimeout(applyDesktopIconsVisibility, 50); }
 
         // Show welcome window if user hasn't already seen it and hasn't directly navigated to an app 
         if(!window.url_paths[0]?.toLocaleLowerCase() === 'app' || !window.url_paths[1]){

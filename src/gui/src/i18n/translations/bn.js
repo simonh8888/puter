@@ -272,6 +272,7 @@ const bn = {
     share_with: "সঙ্গে ভাগাভাগি করুন:",
     shortcut_to: "শর্টকাট",
     show_all_windows: "সমস্ত উইন্ডো দেখান",
+    show_desktop_icons: "ডেস্কটপ আইকন দেখান",
     show_hidden: "লুকানো দেখান",
     sign_in_with_puter: "Puter দিয়ে সাইন ইন করুন",
     sign_up: "নিবন্ধন করুন",

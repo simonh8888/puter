@@ -269,6 +269,7 @@ const da = {
 		share_with: 'Del med:',
 		shortcut_to: 'Genvej til',
 		show_all_windows: 'Vis alle vinduer',
+		show_desktop_icons: 'Vis skrivebordsikoner',
 		show_hidden: 'Vis skjulte',
 		sign_in_with_puter: 'Log ind med Puter',
 		sign_up: 'Tilmeld dig',

@@ -270,6 +270,7 @@ const vi = {
         share_with: "Chia sẻ với:",
         shortcut_to: "Lối tắt đến",
         show_all_windows: "Hiển thị tất cả cửa sổ",
+        show_desktop_icons: "Hiển thị biểu tượng trên màn hình",
         show_hidden: 'Hiển thị mục ẩn',
         sign_in_with_puter: "Đăng nhập bằng Puter",
         sign_up: "Đăng ký",
