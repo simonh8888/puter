@@ -708,9 +708,15 @@ async function UIDesktop(options){
     // update local user preferences
     const user_preferences = {
         show_hidden_files: JSON.parse(await puter.kv.get('user_preferences.show_hidden_files')),
+        // ensure show_desktop_icons has a default so UI and menu state are consistent
+        show_desktop_icons: JSON.parse(await puter.kv.get('user_preferences.show_desktop_icons')) ?? true,
         language: await puter.kv.get('user_preferences.language'),
         clock_visible: await puter.kv.get('user_preferences.clock_visible'),
     };
+
+    // Apply these base preferences immediately so the initial UI is consistent
+    // (puter.kv.list below will augment and call update_user_preferences again)
+    window.update_user_preferences(user_preferences);
 
     // update default apps
     puter.kv.list('user_preferences.default_apps.*').then(async (default_app_keys) => {
