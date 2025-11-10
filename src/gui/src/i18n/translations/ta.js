@@ -268,6 +268,7 @@ const ta = {
         share_with: "இவர்களுடன் பகிரவும்:",
         shortcut_to: "குறுக்குவழி",
         show_all_windows: "அனைத்து விண்டோஸையும் காட்டு",
+        show_desktop_icons: "டெஸ்க்டாப்ப் ஐகான்களை காட்டு",
         show_hidden: 'மறைக்கப்பட்டதைக் காட்டு',
         sign_in_with_puter: "புட்டர் மூலம் உள்நுழையவும்",
         sign_up: "பதிவு செய்யவும்",

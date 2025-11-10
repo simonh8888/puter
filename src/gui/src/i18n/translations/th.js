@@ -266,6 +266,7 @@ const th = {
         share_with: "แชร์ไปให้:",
         shortcut_to: "ทางลัดไป",
         show_all_windows: "แสดงหน้าต่างทั้งหมด",
+        show_desktop_icons: "แสดงไอคอนเดสก์ท็อป",
         show_hidden: "แสดงที่ซ่อนไว้",
         sign_in_with_puter: "ลงชื่อเข้าใช้ด้วย Puter",
         sign_up: "สมัครสมาชิก",

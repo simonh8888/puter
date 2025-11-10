@@ -348,6 +348,7 @@ const fi = {
     share_with: "Jaa:",
     shortcut_to: "Pikakuvake",
     show_all_windows: "Näytä kaikki ikkunat",
+    show_desktop_icons: "Näytä työpöydän kuvakkeet",
     show_hidden: "Näytä piilotetut",
     sign_in_with_puter: "Kirjaudu sisään Puterilla",
     sign_up: "Rekisteröidy",

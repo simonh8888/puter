@@ -305,6 +305,7 @@ const es = {
     share_with: 'Compartir con:',
     shortcut_to: 'Acceso directo a',
     show_all_windows: 'Mostrar todas las ventanas',
+    show_desktop_icons: 'Mostrar iconos del escritorio',
     show_hidden: 'Mostrar ocultos',
     sign_in_with_puter: 'Inicia sesión con Puter',
     sign_up: 'Registrarse',

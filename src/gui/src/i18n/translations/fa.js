@@ -155,6 +155,7 @@ const fa = {
     settings: "تنظیمات",
     share_to: "اشتراک گذاری به",
     show_all_windows: "نمایش همه پنجره ها",
+    show_desktop_icons: "نمایش آیکون‌های دسکتاپ",
     show_hidden: "نمایش مخفی",
     sign_in_with_puter: "ورود با Puter",
     sign_up: "ثبت نام",

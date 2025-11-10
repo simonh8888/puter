@@ -300,6 +300,7 @@ const ru = {
     share_with: 'Поделиться с: ',
     shortcut_to: 'Ярлык для',
     show_all_windows: 'Показать Все Окна',
+    show_desktop_icons: 'Показать значки рабочего стола',
     show_hidden: 'Показать скрытые',
     sign_in_with_puter: 'Войти с Puter',
     sign_up: 'Зарегистрироваться',

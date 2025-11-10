@@ -157,6 +157,7 @@ const emoji = {
         set_new_password: "🔑🆕",
         share_to: "🔁➡️",
         show_all_windows: "🔄🆓🖼️🖼️",
+        show_desktop_icons: "👁️🔄🖥️",
         show_hidden: '👁️🔄',
         sign_in_with_puter: "👤🆔",
         sign_up: "👤🆕",

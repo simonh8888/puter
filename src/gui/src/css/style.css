@@ -346,6 +346,14 @@ input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, sel
     grid-template-columns: repeat(auto-fill, 120px);
 }
 
+/* When this class is present on the desktop, desktop icons are hidden visually
+   but remain in the DOM so positions are preserved. Do NOT disable pointer-events
+   on the desktop itself so right-click still works. */
+.desktop.desktop-icons-hidden .item {
+    visibility: hidden;
+    pointer-events: none;
+}
+
 .fullpage-mode .window-minimize-btn {
     display: none;
 }

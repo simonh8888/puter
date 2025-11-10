@@ -270,6 +270,7 @@ const tr = {
         shortcut_to: "Şuna kısayol oluştur",
         show_all_windows: "Tüm Pencereleri Göster",
         show_hidden: "Gizli dosyaları göster",
+        show_desktop_icons: "Masaüstü simgelerini göster",
         sign_in_with_puter: "Puter ile giriş yap",
         sign_up: "Kaydol",
         signing_in: "Giriş yapılıyor…",

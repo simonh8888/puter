@@ -265,6 +265,7 @@ const hu = {
         share_with: "Megosztás valakivel:",
         shortcut_to: "Parancsikon ide:",
         show_all_windows: "Összes ablak megjelenítése",
+        show_desktop_icons: "Asztali ikonok megjelenítése",
         show_hidden: "Rejtett megjelenítése",
         sign_in_with_puter: "Bejelentkezés Puterrel",
         sign_up: "Regisztráció",

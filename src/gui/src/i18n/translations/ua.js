@@ -273,6 +273,7 @@ const ua = {
         share_with: "Поділитися з",
         shortcut_to: "Ярлик для",
         show_all_windows: "Показати Всі Вікна",
+        show_desktop_icons: "Показати значки робочого столу",
         show_hidden: 'Показати приховані',
         sign_in_with_puter: "Увійти з Puter",
         sign_up: "Зареєструватися",

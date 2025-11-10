@@ -270,6 +270,7 @@ const br = {
     "share_with": "Compartilhar com:",
     "shortcut_to": "Atalho para",
     "show_all_windows": "Mostrar Todas as Janelas",
+    "show_desktop_icons": "Mostrar ícones da área de trabalho",
     "show_hidden": "Mostrar ocultos",
     "sign_in_with_puter": "Entrar com Puter",
     "sign_up": "Cadastrar-se",
