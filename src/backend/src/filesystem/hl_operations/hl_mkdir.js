@@ -273,6 +273,18 @@ class HLMkdir extends HLFilesystemOperation {
         console.log('USING PARENT', parent_node.selector.describe());
         let target_basename = _path.basename(values.path);
 
+        // Prevent creating directories directly under the root directory.
+        // If parent is root and the path's first component is not the
+        // actor/user's username, reject with 403 Forbidden.
+        const dirs = values.path === '.' ? [] : values.path.split('/').filter(Boolean);
+        if ( parent_node.isRoot && dirs.length > 0 ) {
+            const first = dirs[0];
+            const username = (values.user && values.user.username) || (values.actor && values.actor.type && values.actor.type.user && values.actor.type.user.username);
+            if ( username && username !== first ) {
+                throw APIError.create(403, 'Directories cannot be created in the root directory; the root is read-only.');
+            }
+        }
+
         const top_parent = values.create_missing_parents
             ? await this._create_top_parent({ top_parent: parent_node })
             : await this._get_existing_top_parent({ top_parent: parent_node })
