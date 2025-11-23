@@ -255,6 +255,7 @@ const hu = {
         selected: "kiválasztva",
         select_color: "Szín kiválasztása...",
         sessions: "Munkamenetek",
+        set_as_desktop_background: "Beállítás asztali háttérként",
         send: "Küldés",
         send_password_recovery_email: "Jelszó visszaállító email küldése",
         session_saved: "Köszönjük, hogy létrehoztál egy fiókot. Ez a munkamenet mentésre került.",

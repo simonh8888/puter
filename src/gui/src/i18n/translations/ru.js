@@ -288,6 +288,7 @@ const ru = {
     selected: 'выбрано',
     select_color: 'Выбрать цвет…',
     sessions: 'Сеансы',
+    set_as_desktop_background: 'Установить как фон рабочего стола',
     send: 'Отправить',
     send_password_recovery_email:
       'Отправить электронное письмо для восстановления пароля',

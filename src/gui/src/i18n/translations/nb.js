@@ -152,6 +152,7 @@ const nb = {
         selected: 'valgt',
         select_color: "Velg farge…",
         send: "Send",
+        set_as_desktop_background: "Sett som skrivebordsbakgrunn", 
         send_password_recovery_email: "Send e-post for gjenoppretting av passord",
         session_saved: "Takk for at du opprettet en konto. Denne økten er lagret.",
         set_new_password: "Angi nytt passord",

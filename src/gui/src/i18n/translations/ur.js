@@ -268,6 +268,7 @@ const ur = {
     select: "منتخب کریں",
     selected: "منتخب شدہ",
     select_color: "رنگ منتخب کریں",
+    set_as_desktop_background: "ڈیسک ٹاپ پس منظر کے طور پر سیٹ کریں",
     send: "بھیجیں",
     send_password_recovery_email: "پاس ورڈ بحالی ای میل بھیجیں",
     session_saved: "سیشن محفوظ ہوگیا ہے ",

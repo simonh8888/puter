@@ -260,6 +260,7 @@ const zh = {
         selected: '已选择',
         select_color: '选择颜色…',
         sessions: "会话",
+        set_as_desktop_background: "设置为桌面背景",
         send: "发送",
         send_password_recovery_email: "发送密码恢复电子邮件",
         session_saved: "感谢您创建帐号。此会话已保存。",

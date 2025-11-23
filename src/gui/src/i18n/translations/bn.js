@@ -262,6 +262,7 @@ const bn = {
     selected: "নির্বাচিত",
     select_color: "রঙ নির্বাচন করুন…",
     sessions: "সেশনগুলি",
+    set_as_desktop_background: "ডেস্কটপ ব্যাকগ্রাউন্ড হিসেবে সেট করুন",
     send: "প্রেরণ করুন",
     send_password_recovery_email: "পাসওয়ার্ড পুনরুদ্ধারের ইমেল প্রেরণ করুন",
     session_saved: "অ্যাকাউন্ট তৈরি করার জন্য ধন্যবাদ। এই সেশনটি সংরক্ষিত হয়েছে।",

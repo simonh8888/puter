@@ -259,6 +259,7 @@ const hy = {
         selected: "ընտրված",
         select_color: "Ընտրել գույնը…",
         sessions: "Սեսիաներ",
+        set_as_desktop_background: "Սահմանել որպես աշխատասեղանի ֆոն",
         send: "Ուղարկել",
         send_password_recovery_email: "Ուղարկել գաղտնաբառի վերականգնման էլ․փոստի նամակ",
         session_saved: "Շնորհակալություն հաշիվ ստեղծելու համար: Այս սեսիան պահպանվել է:",

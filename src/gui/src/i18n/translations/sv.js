@@ -260,6 +260,7 @@ const sv = {
         selected: "vald",
         select_color: "Välj färg…",
         sessions: "Sessioner",
+        set_as_desktop_background: "Ange som skrivbordsbakgrund",
         send: "Skicka",
         send_password_recovery_email: "Skicka e-post för återställning av lösenord",
         session_saved: "Tack för att du skapade ett konto. Denna session är sparad.",

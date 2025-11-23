@@ -259,6 +259,7 @@ const fr = {
         selected: 'sélectionné',
         select_color: 'Sélectionnez la couleur…',
         sessions: "Sessions",
+        set_as_desktop_background: 'Définir comme fond d\'écran',
         send: "Envoyer",
         send_password_recovery_email: "Envoyer un e-mail de récupération de mot de passe",
         session_saved: "Merci d'avoir créé un compte. Cette session a été sauvegardée.",

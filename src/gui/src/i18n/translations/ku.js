@@ -286,6 +286,7 @@ const ku = {
     selected: "دیاریکراو",
     select_color: "دیاریکردنی ڕەنگ …",
     sessions: "دانیشتنەکان",
+    set_as_desktop_background: "وەک پشتخانی دەسکتۆپ دابنێ",
     send: "ناردن",
     send_password_recovery_email: "پەیامی ڕێکخستنەوەی وشەی تێپەڕ ناردن",
     session_saved: "سوپاس بۆ دروستکردنی هەژمار. ئەم دانیشتنە پاشەکەوتکرا.",

@@ -263,6 +263,7 @@ const ua = {
         selected: "вибрано",
         select_color: "Вибрати колір…",
         sessions: "Сеанси",
+        set_as_desktop_background: "Встановити як фон робочого столу",
         send: "Надіслати",
         send_password_recovery_email: "Надіслати електронний лист для відновлення пароля",
         session_saved: "Дякуємо вам за створення облікового запису. Цей сеанс збережено.",

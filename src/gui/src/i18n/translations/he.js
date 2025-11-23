@@ -276,6 +276,7 @@ const en = {
     selected: "נבחר",
     select_color: "בחירת צבע…",
     sessions: "ישיבות",
+    set_as_desktop_background: "הגדר כרקע שולחן העבודה",
     send: "שלח",
     send_password_recovery_email: "שלח אימייל שחזור סיסמה",
     session_saved: "תודה שיצרת חשבון. הפעלה זו נשמרה",

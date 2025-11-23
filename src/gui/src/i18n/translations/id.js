@@ -277,6 +277,7 @@ const id = {
     selected: "terpilih",
     select_color: "Pilih warna…",
     sessions: "Sesi",
+    set_as_desktop_background: "Atur sebagai latar belakang desktop",
     send: "Kirim",
     send_password_recovery_email: "Kirim Email Pemulihan Kata Sandi",
     session_saved: "Terima kasih telah membuat akun. Sesi ini telah disimpan.",

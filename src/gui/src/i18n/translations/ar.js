@@ -278,6 +278,7 @@ const ar = {
       selected: "محدد",
       select_color: "اختر لونًا…",
       sessions: "جلسات",
+      set_as_desktop_background: "تعيين كخلفية سطح المكتب",
       send: "إرسال",
       send_password_recovery_email: "إرسال بريد استعادة كلمة المرور",
       session_saved: "شكرًا لإنشاء حساب. تم حفظ هذه الجلسة.",

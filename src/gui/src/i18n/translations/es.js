@@ -294,6 +294,7 @@ const es = {
     selected: 'seleccionado',
     select_color: 'Seleccionar color…',
     sessions: 'Sesión',
+    set_as_desktop_background: 'Establecer como fondo de escritorio',
     send: 'Enviar',
     send_password_recovery_email:
       'Enviar la contraseña al correo de recuperación',

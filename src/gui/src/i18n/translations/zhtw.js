@@ -259,6 +259,7 @@ const zhtw = {
         selected: '已選擇',
         select_color: '選擇顏色…',
         sessions: "工作階段",
+        set_as_desktop_background: "設為桌面背景",
         send: "發送",
         send_password_recovery_email: "發送密碼恢復電子郵件",
         session_saved: "感謝您建立帳戶。此工作階段已儲存。",

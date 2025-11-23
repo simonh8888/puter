@@ -259,6 +259,7 @@ const hi = {
         selected: 'चयनित',
         select_color: 'रंग चुने…',
         sessions: "सत्र",
+        set_as_desktop_background: "डेस्कटॉप पृष्ठभूमि के रूप में सेट करें",
         send: "भेजे",
         send_password_recovery_email: "पासवर्ड पुनर्प्राप्ति ईमेल भेजें",
         session_saved: "खाता बनाने के लिए धन्यवाद. यह सत्र सहेजा गया है",

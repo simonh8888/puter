@@ -259,6 +259,7 @@ const da = {
 		selected: 'valgt',
 		select_color: 'Vælg farve…',
 		sessions: 'Sessioner',
+		set_as_desktop_background: 'Indstil som skrivebordsbaggrund',
 		send: 'Send',
 		send_password_recovery_email: 'Send e-mail til gendannelse af adgangskode',
 		session_saved: 'Tak fordi du oprettede en konto. Denne session er blevet gemt.',

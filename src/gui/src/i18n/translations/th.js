@@ -256,6 +256,7 @@ const th = {
         selected: "ที่เลือก",
         select_color: "เลือกสี...",
         sessions: "เซสชั่น",
+        set_as_desktop_background: "ตั้งเป็นพื้นหลังเดสก์ท็อป",
         send: "ส่ง",
         send_password_recovery_email: "ส่งอีเมลกู้คืนรหัสผ่าน",
         session_saved: "ขอบคุณสำหรับการสร้างบัญชี เซสชันนี้ได้รับการบันทึกแล้ว",
