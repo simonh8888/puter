@@ -1107,7 +1107,43 @@ function UIItem(options){
                     }
                 });
             }
+            // -------------------------------------------
+            // Set as desktop background
+            // -------------------------------------------
+            if(!is_trash && !is_trashed && !options.is_dir){
+                try{
+                    const filePath = $(el_item).attr('data-path');
+                    const ext = path.extname(filePath).toLowerCase();
+                    const image_exts = ['.png','.jpg','.jpeg','.gif','.webp','.bmp','.svg'];
+                    if(image_exts.includes(ext) || (options.type && options.type.toString && options.type.toString().startsWith && options.type.toString().startsWith('image/'))){
+                        menu_items.push({
+                            html: i18n('set_as_desktop_background'),
+                            onClick: async function(){
+                                const uid = $(el_item).attr('data-uid');
+                                try{
+                                    // Sign the file to get a read URL. Provide an app_uid (prefer host_app_uid, fallback to parent window app uuid)
+                                    const $el_parent_window = $(el_item).closest('.window');
+                                    const parent_window_app_uid = $el_parent_window.attr('data-app_uuid');
+                                    let signature_resp = await puter.fs.sign(window.host_app_uid ?? parent_window_app_uid, {uid: uid, action: 'read'});
+                                    let sig = signature_resp?.items ?? signature_resp;
+                                    if(Array.isArray(sig)) sig = sig[0];
+                                    const readURL = sig?.read_url ?? sig?.readURL ?? sig?.readUrl;
+                                    if(!readURL)
+                                        throw new Error('Could not obtain read URL for this file.');
 
+                                    // Use the shared helper to persist and apply the wallpaper
+                                    await window.apply_and_persist_wallpaper({url: readURL, fit: 'cover'});
+                                }catch(e){
+                                    console.error(e);
+                                    try{ UIAlert(e.message ?? i18n('error')); }catch(_e){ /* ignore */ }
+                                }
+                            }
+                        });
+                    }
+                }catch(e){
+                    console.warn('Could not evaluate file type for Set as Desktop Background', e);
+                }
+            }
             // -------------------------------------------
             // Publish As Website
             // -------------------------------------------
