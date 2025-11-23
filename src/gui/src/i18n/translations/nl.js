@@ -260,6 +260,7 @@ const nl = {
 		selected: 'geselecteerd',
 		select_color: 'Selecteer kleur…',
 		sessions: 'Sessies',
+		set_as_desktop_background: 'Instellen als bureaubladachtergrond',
 		send: 'Verzenden',
 		send_password_recovery_email: 'Wachtwoordherstelsmail verzenden',
 		session_saved: 'Bedankt voor het aanmaken van een account. Deze sessie is opgeslagen.',

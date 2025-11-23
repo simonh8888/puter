@@ -334,6 +334,7 @@ const fi = {
     selected: "valitut",
     select_color: "Valitse väri…",
     sessions: "Istunnot",
+    set_as_desktop_background: "Aseta työpöydän taustaksi",
     send: "Lähetä",
     send_password_recovery_email: "Lähetä salasanan palautussähköposti",
     session_saved: "Kiitos tilin luomisesta. Tämä istunto on tallennettu.",

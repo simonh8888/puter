@@ -260,6 +260,7 @@ const vi = {
         selected: 'đã chọn',
         select_color: 'Chọn màu…',
         sessions: "Phiên",
+        set_as_desktop_background: "Đặt làm nền màn hình",
         send: "Gửi",
         send_password_recovery_email: "Gửi email khôi phục mật khẩu",
         session_saved: "Cảm ơn bạn đã tạo tài khoản. Phiên này đã được lưu.",

@@ -282,6 +282,7 @@ const ig = {
     selected: "họrọ",
     select_color: "Họrọ agba…",
     sessions: "Oge",
+    set_as_desktop_background: "Tọọ dị ka ndabere desktọọpụ",
     send: "Ziga",
     send_password_recovery_email: "Zipu ozi-e mgbake paswọọdụ ",
     session_saved: "Daalụ maka ịmepụta akaụntụ. Achekwala nnọkọ a.",

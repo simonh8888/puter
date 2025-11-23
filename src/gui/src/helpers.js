@@ -1679,6 +1679,72 @@ window.refresh_desktop_background = function(){
     }
 }
 
+/**
+ * Apply and persist a desktop wallpaper.
+ *
+ * This helper posts the wallpaper selection to the server endpoint
+ * `/set-desktop-bg` (to persist the choice) and then immediately applies
+ * the wallpaper via `window.set_desktop_background`. It also updates
+ * `window.user` and the `localStorage` copy so the change survives reloads.
+ *
+ * @param {Object} options
+ * @param {string} options.url - Read URL of the image to use as wallpaper
+ * @param {string} [options.fit='cover'] - CSS fit mode (cover|contain|center|repeat)
+ * @param {string} [options.color] - Background color (if using a color wallpaper)
+ */
+window.apply_and_persist_wallpaper = async function({url, fit = 'cover', color} = {}){
+    // Persist to server (best-effort). If unauthorized, logout.
+    try{
+        await $.ajax({
+            url: window.api_origin + "/set-desktop-bg",
+            type: 'POST',
+            data: JSON.stringify({ 
+                url: url,
+                fit: fit,
+                color: color,
+            }),
+            async: true,
+            contentType: "application/json",
+            headers: {
+                "Authorization": "Bearer "+window.auth_token
+            },
+            statusCode: {
+                401: function () {
+                    window.logout();
+                },
+            },
+        });
+    }catch(err){
+        console.error('Failed to persist desktop background', err);
+    }
+
+    // Apply immediately.
+    try{
+        window.set_desktop_background({url: url, fit: fit, color: color});
+    }catch(e){
+        console.error('Failed to apply desktop background', e);
+    }
+
+    // Update in-memory and localStorage user object so it survives reloads
+    try{
+        if(window.user){
+            window.user.desktop_bg_url = url ?? null;
+            window.user.desktop_bg_fit = fit ?? null;
+            window.user.desktop_bg_color = color ?? null;
+
+            const to_storable_user = (u) => {
+                const storable_user = {...u};
+                delete storable_user.taskbar_items;
+                return storable_user;
+            };
+
+            localStorage.setItem('user', JSON.stringify(to_storable_user(window.user)));
+        }
+    }catch(e){
+        console.error('Failed to update local user record for desktop background', e);
+    }
+}
+
 window.determine_website_url = function(fsentry_path){
     // search window.sites and if any site has `dir_path` set and the fsentry_path starts with that dir_path + '/', return the site's url + path
     for(let i=0; i<window.sites.length; i++){

@@ -263,6 +263,7 @@ const pt = {
         selected: 'selecionado',
         select_color: 'Selecionar cor…',
         sessions: "Sessions",
+        set_as_desktop_background: "Definir como fundo do ambiente de trabalho",
         send: "Enviar",
         send_password_recovery_email: "Enviar Email de Recuperação de Password",
         session_saved: "Obrigado por criares uma conta. Esta sessão foi gravada.",

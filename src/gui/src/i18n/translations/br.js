@@ -260,6 +260,7 @@ const br = {
     "selected": "selecionado",
     "select_color": "Selecionar cor…",
     "sessions": "Sessões",
+    "set_as_desktop_background": "Definir como plano de fundo da área de trabalho",
     "send": "Enviar",
     "send_password_recovery_email": "Enviar E-mail de Recuperação de Senha",
     "session_saved": "Obrigado por criar uma conta. Esta sessão foi salva.",

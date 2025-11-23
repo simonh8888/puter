@@ -280,6 +280,7 @@ const ko = {
     selected: "선택됨",
     select_color: "색상 선택…",
     sessions: "세션",
+    set_as_desktop_background: "바탕 화면으로 설정",
     send: "보내기",
     send_password_recovery_email: "비밀번호 복구 이메일 보내기",
     session_saved: "계정을 생성해 주셔서 감사합니다. 이 세션이 저장되었습니다.", // Improvement suggestion: "계정을 만들어주셔서 감사합니다. 현재 세션이 저장되었습니다."

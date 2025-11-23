@@ -259,6 +259,7 @@ const tr = {
         selected: "seçildi",
         select_color: "Renk seç…",
         sessions: "Oturumlar",
+        set_as_desktop_background: "Masaüstü arka planı olarak ayarla",
         send: "Gönder",
         send_password_recovery_email: "Parola Kurtarma E-postası Gönder",
         session_saved: "Hesap oluşturduğunuz için teşekkür ederiz. Oturumunuz kaydedildi.",

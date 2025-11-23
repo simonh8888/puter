@@ -260,6 +260,7 @@ const ja = {
         selected: '選択済み',
         select_color: '色を選択…',
         sessions: "セッション",
+        set_as_desktop_background: "デスクトップの背景として設定",
         send: "送信",
         send_password_recovery_email: "パスワード回復メールを送信",
         session_saved: "アカウントを作成していただきありがとうございます。このセッションは保存されました。",

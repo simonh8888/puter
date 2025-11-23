@@ -286,6 +286,7 @@ const it = {
     selected: "Selezionato",
     select_color: "Seleziona un colore…",
     sessions: "Sessioni",
+    set_as_desktop_background: "Imposta come sfondo del desktop",
     send: "Invia",
     send_password_recovery_email:
       "Invia email per il ripristino della password",

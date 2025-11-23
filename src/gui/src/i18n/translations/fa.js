@@ -325,6 +325,7 @@ const fa = {
     seconds: "ثانیه", // In English: "seconds"
     selected: "انتخاب شده", // In English: "selected"
     sessions: "نشست ها", // In English: "Sessions"//////TN: better to use sesions
+    set_as_desktop_background: "به عنوان پس‌زمینه دسکتاپ تنظیم کنید", // In English: "Set as desktop background"
     share: "به اشتراک گذاری", // In English: "Share"
     share_with: "اشتراک با", // In English: "Share with:"
     shortcut_to: "میانبر به", // In English: "Shortcut to"

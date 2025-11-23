@@ -259,6 +259,7 @@ const pl = {
         selected: 'Wybrany',
         select_color: 'Wybierz kolor…',
         sessions: "Sesje",
+        set_as_desktop_background: "Ustaw jako tło pulpitu",
         send: "Wyślij",
         send_password_recovery_email: "Wyślij email do odzyskania hasła",
         session_saved: "Dziękujemy za stworzenie konta. Ta sesja została zapisana. ",
