@@ -26,6 +26,8 @@
  * @returns {Object} The context menu item object
  */
 
+import UIAlert from '../UI/UIAlert.js'
+
 const new_context_menu_item = function(dirname, append_to_element){
     
     const baseItems = [
@@ -53,6 +55,37 @@ const new_context_menu_item = function(dirname, append_to_element){
             icon: `<img src="${html_encode(window.icons['file-html.svg'])}" class="ctx-item-icon">`,
             onClick: async function() {
                 window.create_file({dirname: dirname, append_to_element: append_to_element, name: 'New File.html'});
+            }
+        },
+        // New Link (weblink)
+        {
+            html: i18n('new_link'),
+            icon: `<img src="${html_encode(window.icons['link.svg'])}" class="ctx-item-icon">`,
+            onClick: async function() {
+                // Quick prompt for URL. Validate and create .weblink JSON file.
+                let url = window.prompt(i18n('enter_url_prompt'));
+                if(!url) return;
+                url = url.trim();
+                if(!/^https?:\/\//i.test(url)){
+                    await UIAlert({ message: i18n('invalid_url_start') });
+                    return;
+                }
+                try{
+                    const parsed = new URL(url);
+                    const base = parsed.hostname.replace(/^www\./i, '');
+                    let filename = base + '.weblink';
+                    let counter = 1;
+                    // Ensure filename unique in target container
+                    while($(append_to_element).find(`.item[data-name="${html_encode(filename)}"]`).length > 0){
+                        counter += 1;
+                        filename = `${base}-${counter}.weblink`;
+                    }
+                    const content = JSON.stringify({ url: url });
+                    window.create_file({ dirname: dirname, append_to_element: append_to_element, name: filename, content: content });
+                }catch(e){
+                    await UIAlert({ message: i18n('invalid_url') });
+                    return;
+                }
             }
         },
         // JPG Image

@@ -35,6 +35,8 @@ const open_item = async function(options){
     const shortcut_to_path = $(el_item).attr('data-shortcut_to_path');
     const associated_app_name = $(el_item).attr('data-associated_app_name');
     const file_uid = $(el_item).attr('data-uid');
+
+    
     
     //----------------------------------------------------------------
     // Is this a shortcut whose source is perma-deleted?
@@ -53,6 +55,48 @@ const open_item = async function(options){
     //----------------------------------------------------------------
     else if(item_path.startsWith(window.trash_path + '/')){
         UIAlert(`This item can't be opened because it's in the trash. To use this item, first drag it out of the Trash.`)
+    }
+    //----------------------------------------------------------------
+    // Is this a .weblink file? Open the stored URL in a new tab.
+    //----------------------------------------------------------------
+    else if(!is_dir && path.extname(item_path).toLowerCase() === '.weblink'){
+        try{
+            let content = await puter.fs.read(item_path);
+            let text = '';
+            if(typeof content === 'string'){
+                text = content;
+            }else if(content && typeof content.text === 'function'){
+                text = await content.text();
+            }else if(content && content.toString){
+                text = content.toString();
+            }
+            text = (text || '').trim();
+
+            let url = null;
+            try{
+                const parsed = JSON.parse(text);
+                url = parsed?.url ?? null;
+            }catch(e){
+                url = text;
+            }
+
+            if(url && /^https?:\/\//i.test(url)){
+                const a = document.createElement('a');
+                a.href = url;
+                a.target = '_blank';
+                a.rel = 'noopener noreferrer';
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                return;
+            }else{
+                UIAlert({ message: i18n('invalid_link_file') });
+                return;
+            }
+        }catch(err){
+            console.log('open_item: error opening .weblink', err);
+            return;
+        }
     }
     //----------------------------------------------------------------
     // Is this a file (no dir) on a SaveFileDialog?

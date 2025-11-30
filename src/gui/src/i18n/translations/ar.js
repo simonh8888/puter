@@ -122,6 +122,7 @@ const ar = {
       email_invalid: "البريد الإلكتروني غير صالح.",
       email_or_username: "البريد الإلكتروني أو اسم المستخدم",
       email_required: "البريد الإلكتروني مطلوب.",
+      enter_url_prompt: "أدخل عنوان URL:",
       empty_trash: "إفراغ سلة المهملات",
       empty_trash_confirmation:
           "هل أنت متأكد أنك تريد حذف العناصر في سلة المهملات نهائيًا؟",
@@ -157,6 +158,9 @@ const ar = {
       image: "صورة",
       incorrect_password: "كلمة مرور غير صحيحة",
       invite_link: "رابط الدعوة",
+      invalid_link_file: "ملف رابط غير صالح.",
+      invalid_url: "عنوان URL غير صالح.",
+      invalid_url_start: "يجب أن يبدأ عنوان URL بـ http:// أو https://.",
       item: "عنصر",
       items_in_trash_cannot_be_renamed:
           "لا يمكن إعادة تسمية هذا العنصر لأنه في سلة المهملات. لإعادة تسمية هذا العنصر، اسحبه أولاً خارج سلة المهملات.",
@@ -192,6 +196,7 @@ const ar = {
       new_folder: "مجلد جديد",
       new_password: "كلمة المرور الجديدة",
       new_username: "اسم المستخدم الجديد",
+      new_link: "رابط جديد",
       no: "لا",
       no_dir_associated_with_site: "لا يوجد دليل مرتبط بهذا العنوان.",
       no_websites_published: "لم تنشر أي مواقع إلكترونية بعد.",

@@ -1263,6 +1263,54 @@ async function UIDesktop(options){
         $('.window-menubar-global').hide();
     })  
 
+    // Paste URL onto desktop -> create .weblink
+    // Desktop element may not be focused so also listen on document to catch Ctrl+V paste
+    async function handlePasteEvent(clipboardText){
+        try{
+            if(!clipboardText) return;
+            const text = clipboardText.toString().trim();
+            if(!/^https?:\/\//i.test(text)) return;
+
+            // ensure paste target is desktop (mouse over desktop or active container is desktop)
+            const activeContainer = window.active_item_container;
+            const elUnderMouse = document.elementFromPoint(window.mouseX ?? 0, window.mouseY ?? 0);
+            const isOverDesktop = (activeContainer && $(activeContainer).closest('.desktop').length > 0) || $(elUnderMouse).closest('.desktop').length > 0;
+            if(!isOverDesktop) return;
+
+            const parsed = new URL(text);
+            const base = parsed.hostname.replace(/^www\./i, '');
+            let filename = base + '.weblink';
+            let counter = 1;
+            while($(el_desktop).find(`.item[data-name="${html_encode(filename)}"]`).length > 0){
+                counter += 1;
+                filename = `${base}-${counter}.weblink`;
+            }
+
+            const content = JSON.stringify({ url: text });
+            window.create_file({ dirname: window.desktop_path, append_to_element: el_desktop, name: filename, content: content });
+        }catch(err){
+            console.error('Paste handler error:', err);
+        }
+    }
+
+    // document-level paste to catch Ctrl+V even when desktop isn't focused
+    $(document).on('paste', function(e){
+        const clipboardData = (e.originalEvent && e.originalEvent.clipboardData) ? e.originalEvent.clipboardData : (window.clipboardData ? window.clipboardData : null);
+        if(!clipboardData) return;
+        const text = (clipboardData.getData && clipboardData.getData('text/plain')) || '';
+        if(!text) return;
+        handlePasteEvent(text);
+    });
+
+    // keep previous direct desktop paste handler for any focus-based paste events
+    $(el_desktop).on('paste', function(e){
+        const clipboardData = (e.originalEvent && e.originalEvent.clipboardData) ? e.originalEvent.clipboardData : (window.clipboardData ? window.clipboardData : null);
+        if(!clipboardData) return;
+        const text = (clipboardData.getData && clipboardData.getData('text/plain')) || '';
+        if(!text) return;
+        handlePasteEvent(text);
+    });
+
     function display_ct() {
         var x = new Date()
         var ampm = x.getHours( ) >= 12 ? ' PM' : ' AM';
